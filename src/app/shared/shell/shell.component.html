@@ -55,7 +55,7 @@
         <span class="fill-space"></span>
 
         <div *ngIf="!(isHandset$ | async)">
-            <a mat-button routerLink="/my-tournaments">
+            <a mat-button routerLink="/my-infos/my-tournaments">
                🌟 My tournaments
             </a>
             <a mat-button routerLink="/my-infos">
@@ -76,14 +76,14 @@
         </button>
 
         <mat-menu #menu="matMenu">
-            <a mat-menu-item routerLink="/team">
-                <i>💬 Team</i>
+            <a mat-menu-item routerLink="/my-infos/my-teams">
+                <i>💬 Teams</i>
             </a>
             <a mat-menu-item routerLink="/player">
                 <i>💬 Player</i>
             </a>
-            <a mat-menu-item routerLink="/tour">
-                <i>💬 App</i>
+            <a mat-menu-item routerLink="/organisator">
+                <i>💬 Organizing</i>
             </a>
             <a mat-menu-item routerLink="/admin/dashboard">
                 <i>💬 Admin </i>

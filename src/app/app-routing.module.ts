@@ -5,7 +5,7 @@ import { LoginPageComponent } from './shared/Pages/login-page/login-page.compone
 import { Page404Component } from './shared/Pages/page404/page404.component';
 import { PageSignUpComponent } from './shared/Pages/page-sign-up/page-sign-up.component';
 import { TourDetailsComponent } from './shared/Pages/tour-details/tour-details.component';
-// import { SharedModule } from './shared/shared.module';
+
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
@@ -19,6 +19,10 @@ const routes: Routes = [
   {
     path:'my-infos',
     loadChildren: () => import('./LoggedModule/logged.module').then((module) => module.LoggedModule)
+  },
+  {
+    path: 'organisator',
+    loadChildren: () => import('./OrganisatorModule/organisator.module').then((module) => module.OrganisatorModule)
   },
   {path: '404-not-found', component: Page404Component},
   {path: '**' , redirectTo: '/404-not-found'}
