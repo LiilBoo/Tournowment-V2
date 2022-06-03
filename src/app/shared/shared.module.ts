@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageSignUpComponent } from './Pages/page-sign-up/page-sign-up.component';
 import { TourDetailsComponent } from './Pages/tour-details/tour-details.component';
 import { RouterModule } from '@angular/router';
+import { AngularMaterialModule } from '../AngularMaterialModule/angular-material.module';
 
 const components = [
   ShellComponent,
@@ -27,11 +28,7 @@ const components = [
 ];
 
 const modules = [
-  MatToolbarModule,
-  MatSidenavModule,
-  MatIconModule,
-  MatMenuModule,
-  MatListModule,
+  AngularMaterialModule,
   ReactiveFormsModule,
   FormsModule,
   RouterModule,

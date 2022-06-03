@@ -11,10 +11,10 @@ import { ITourPatch } from '../Models/itour-patch';
 })
 export class TournamentService {
 
-  private apiUrl: String;
+  apiUrl: string = environment.apiUrl;
 
   constructor(private http: HttpClient) { 
-    this.apiUrl = environment.apiUrl;
+    
   };
 
   //*CRUD : READ
@@ -36,19 +36,19 @@ export class TournamentService {
     
   };
 
-  findToursByContact(contactName:String): Observable<ITourCard[]>{
+  findToursByContact(contactName:string): Observable<ITourCard[]>{
     return this.http.get<ITourCard[]>(
       `${this.apiUrl}/api/tournaments/by-contact?contact=${contactName}`
       );
   };
 
-  findToursByName(name:String): Observable<ITourCard[]>{
+  findToursByName(name:string): Observable<ITourCard[]>{
     return this.http.get<ITourCard[]>(
       `${this.apiUrl}/api/tournaments/by-name?tourname=${name}`
       );
   };
 
-  findToursByFormat(formatName:String): Observable<ITourCard[]>{
+  findToursByFormat(formatName:string): Observable<ITourCard[]>{
     return this.http.get<ITourCard[]>(
       `${this.apiUrl}/api/tournaments/by-format?format=${formatName}`
       );
@@ -80,7 +80,7 @@ export class TournamentService {
   //* ----- DELETE REQUEST
   deleteTournament(id: number){
     return this.http.delete(`${this.apiUrl}/api/tournaments/${id}`);
-    return this.http.delete(`${this.apiUrl}/api/tournaments/delete-id?id=${id}`);
+    // return this.http.delete(`${this.apiUrl}/api/tournaments/delete-id?id=${id}`);
   };
 
 }

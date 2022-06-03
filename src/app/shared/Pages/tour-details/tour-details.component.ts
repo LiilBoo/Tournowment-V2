@@ -19,15 +19,15 @@ export class TourDetailsComponent implements OnInit {
 ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((param) => {
-      this.tourService.getTourDetailsWithId(param['id']).pipe( 
-        first() 
-        ).subscribe((tour: ITourDetails) => {
-        // populate properties
-        // & templates with the retrieved : tour
-        // this.tour = tour;
-      })
-    })
+    // this.activatedRoute.params.subscribe((param) => {
+    //   this.tourService.getTourDetailsWithId(param['id']).pipe( 
+    //     first() 
+    //     ).subscribe((tour: ITourDetails) => {
+    //     // populate properties
+    //     // & templates with the retrieved : tour
+    //     // this.tour = tour;
+    //   })
+    // })
   }
 
 }

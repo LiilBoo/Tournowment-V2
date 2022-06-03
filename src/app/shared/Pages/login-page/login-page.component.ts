@@ -1,15 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { first, Observable, Subscription } from 'rxjs';
+import { first, Subscription } from 'rxjs';
 import { AuthenticationService } from 'src/app/Services/authentication.service';
+
 
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss']
 })
-export class LoginPageComponent implements OnInit {
+export class LoginPageComponent {
 
   signInError = false;
 
@@ -20,8 +21,7 @@ export class LoginPageComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
-
+ 
   onSubmitSignIn(form: NgForm) {
     const username = form.value.username;
     const password = form.value.password;
