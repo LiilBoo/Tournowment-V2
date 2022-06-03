@@ -13,7 +13,12 @@ const routes: Routes = [
   {path:'sign-up', component: PageSignUpComponent},
   {path:'tour-details/:id', component: TourDetailsComponent},
   {
-    path: 'admin', loadChildren: () => import('./AdminModule/admin.module').then((module) => module.AdminModule)
+    path: 'admin', 
+    loadChildren: () => import('./AdminModule/admin.module').then((module) => module.AdminModule)
+  },
+  {
+    path:'my-infos',
+    loadChildren: () => import('./LoggedModule/logged.module').then((module) => module.LoggedModule)
   },
   {path: '404-not-found', component: Page404Component},
   {path: '**' , redirectTo: '/404-not-found'}

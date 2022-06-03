@@ -21,8 +21,10 @@ export class AuthorizationInterceptor implements HttpInterceptor {
       );
   
   
-      if((API_TOKEN !== null) && (API_TOKEN !== '')) return next.handle(REQUEST_CLONE);
+      if((API_TOKEN == null) || 
+              (API_TOKEN == '') ||
+                  (API_TOKEN == undefined)) return next.handle(request);
       
-      return next.handle(request);
+      return next.handle(REQUEST_CLONE);
   }
 }
