@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { first, Observable, Subscription } from 'rxjs';
 import { AuthenticationService } from 'src/app/Services/authentication.service';
 
 @Component({
@@ -11,6 +12,8 @@ import { AuthenticationService } from 'src/app/Services/authentication.service';
 export class LoginPageComponent implements OnInit {
 
   signInError = false;
+
+  subscription$!: Subscription;
 
   constructor(
     private authService: AuthenticationService,
@@ -23,24 +26,31 @@ export class LoginPageComponent implements OnInit {
     const username = form.value.username;
     const password = form.value.password;
 
-    const requeteObservable = this.authService.logUser(username, password);
 
-    console.log(username,password); //s'execute on rentre dans la methode
-
-    requeteObservable.subscribe({
-      next: (response: any) => {
-
-        console.log(response.token);
+    //!Error should be handled in the back-end
+   let observableRequest = this.authService.logUser(username, password).pipe( 
+      first()
+      );
       
-        localStorage.setItem('token', response.token);
+      this.subscription$ = observableRequest.subscribe({
+        next: (token: string) => {
 
-        this.router.navigateByUrl('/');
+          console.log(token);
         
-      },
-      error: (err: any) => {
-        this.signInError = true;
-      },
+          localStorage.setItem('token', token);
+  
+          this.router.navigateByUrl('/');
+        },
+        error: (err: any) => {
+          this.signInError = true;
+        },
     });
-  }
+
+  }; //end of ngOnInit
+
+  //! if wrong password, sub is done but never emits a first value
+  ngOnDestroy(): void {
+    this.subscription$ && this.subscription$.unsubscribe();
+  }; 
 
 }

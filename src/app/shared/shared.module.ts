@@ -15,6 +15,7 @@ import { Page404Component } from './Pages/page404/page404.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageSignUpComponent } from './Pages/page-sign-up/page-sign-up.component';
 import { TourDetailsComponent } from './Pages/tour-details/tour-details.component';
+import { RouterModule } from '@angular/router';
 
 const components = [
   ShellComponent,
@@ -33,6 +34,7 @@ const modules = [
   MatListModule,
   ReactiveFormsModule,
   FormsModule,
+  RouterModule,
 ];
 
 @NgModule({

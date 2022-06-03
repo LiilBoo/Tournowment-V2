@@ -30,12 +30,16 @@ export class TournamentService {
 
   getTourDetailsWithId(id: number): Observable<ITourDetails>{
 
-    return this.http.get<ITourDetails>(`${this.apiUrl}/api/tournaments/with-id?id=${id}`);
+    return this.http.get<ITourDetails>(
+      `${this.apiUrl}/api/tournaments/with-id?id=${id}`
+      );
     
   };
 
   findToursByContact(contactName:String): Observable<ITourCard[]>{
-    return this.http.get<ITourCard[]>(`${this.apiUrl}/api/tournaments/by-contact?contact=${contactName}`);
+    return this.http.get<ITourCard[]>(
+      `${this.apiUrl}/api/tournaments/by-contact?contact=${contactName}`
+      );
   };
 
   findToursByName(name:String): Observable<ITourCard[]>{
@@ -50,9 +54,8 @@ export class TournamentService {
       );
   };
 
-  paginateToPage(pageNumber: number): Observable<ITourCard[]>{
-    pageNumber = 0;
-
+  paginateToPage(pageNumber: number = 0): Observable<ITourCard[]>{
+    
     return this.http.get<ITourCard[]>(
       `${this.apiUrl}/api/tournaments/per-page?page=${pageNumber}`
       );
@@ -76,6 +79,7 @@ export class TournamentService {
   //*CRUD : DELETE
   //* ----- DELETE REQUEST
   deleteTournament(id: number){
+    return this.http.delete(`${this.apiUrl}/api/tournaments/${id}`);
     return this.http.delete(`${this.apiUrl}/api/tournaments/delete-id?id=${id}`);
   };
 
