@@ -7,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  //* will need HttpClient
   constructor() { }
 
+  //* will need to load cards onInitialization
   ngOnInit(): void {
   }
 

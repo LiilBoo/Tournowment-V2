@@ -12,6 +12,9 @@ const routes: Routes = [
   {path:'login', component: LoginPageComponent},
   {path:'sign-up', component: PageSignUpComponent},
   {path:'tour-details/:id', component: TourDetailsComponent},
+  {
+    path: 'admin', loadChildren: () => import('./AdminModule/admin.module').then((module) => module.AdminModule)
+  },
   {path: '404-not-found', component: Page404Component},
   {path: '**' , redirectTo: '/404-not-found'}
 ];
