@@ -17,6 +17,13 @@ export class TournamentService {
     
   };
 
+  //*CRUD : CREATE
+  //* ------ POST REQUESTS
+
+  createTour(tournament: ITourDetails){
+    return this.http.post(`${this.apiUrl}/api/tournaments/create-tour`, tournament);
+  }
+
   //*CRUD : READ
   //* ------ GET REQUESTS
 
